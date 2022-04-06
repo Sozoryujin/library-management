@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./formstyle.css" rel="stylesheet">
+    <link href="./fstyle.js" rel="JavaScript">
+    <title>Donate</title>
+</head>
+<body>
+    <form class="signup-form" action="/register" method="post">
+<!-- form header -->
+<div class="form-header">
+    <h1>Borrow books</h1>
+  </div>
+  <!-- form body -->
+<div class="form-body">
+
+    <!-- Firstname and Lastname -->
+    <div class="horizontal-group">
+        <div class="form-group left">
+            <label for="firstname" class="label-title">First name *</label>
+            <input type="text" id="firstname" class="form-input" placeholder="enter your first name" required="required" />
+        </div>
+        <div class="form-group right">
+            <label for="lastname" class="label-title">Last name</label>
+            <input type="text" id="lastname" class="form-input" placeholder="enter your last name" />
+        </div>
+    </div>
+
+</div>
+<!-- Email -->
+<div class="form-group">
+    <label for="email" class="label-title">Email*</label>
+    <input type="email" id="email" class="form-input" placeholder="enter your email" required="required">
+  </div>
+  <p></p>
+  
+
+  <!-- Gender and Hobbies -->
+<div class="horizontal-group">
+
+    <div class="form-group left">
+        <label class="label-title">Preferance:</label>
+        <div class="input-group">
+            <label for="buy">
+                <input type="radio" name="Preferance" value="buy" id="buy"> Buy</label>
+            <label for="rent">
+                <input type="radio" name="Preferance" value="rent" id="rent"> Rent</label>
+        </div>
+    </div>
+
+    
+    
+</div>
+<p></p>
+ 
+ <!-- Profile picture and Age -->
+ <div class="horizontal-group">
+
+    <div class="form-group left" >
+      <label for="Address" class="label-title">Address</label>
+      <textarea class="form-input" name="address" id="address" cols="30" rows="4" style="height: auto;"></textarea>
+    </div>
+    
+    <div class="form-group right">
+      <label for="experience" class="label-title">No.of coppies</label>
+      <input type="number" min="0" max="1000"  value="0" class="form-input">
+    </div>
+  
+  </div>
+  <p></p>
+  <!-- Bio -->
+<div class="form-group">
+    <label for="choose-file" class="label-title">Book's name and description:</label>
+    <textarea class="form-input" rows="4" cols="50" style="height:auto"></textarea>
+  </div>
+  <p></p>
+  <!-- form footer -->
+<div class="form-footer">
+    
+    <a button type="submit" href="thanks.html" class="btn">Borrow</a></button>
+  </div>
+    </form>
+</body>
+</html>
