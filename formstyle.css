@@ -1,19 +1,43 @@
 @import url('httpss://fonts.googleapis.com/css?family=Roboto');
 
 body {
-  background:linear-gradient(to right, #b7e0f0 0%, #b6e2f3 50%, #ccebf7 99%);
+  margin: 0%;
+  padding: 0%;
+}
+body::before {
+  content: '';
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./imagesbg/download.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size:cover;
+  background-size: cover;
+  -webkit-filter: blur(5px);
+  -moz-filter:blur(5px);
+  filter:
 }
 
 .signup-form {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   font-family: "Roboto", sans-serif;
   width: 800px;
   margin:30px auto;
-  background:linear-gradient(to right, #ffffff 0%, #fafafa 50%, #ffffff 99%);
+  background: #808080;
   border-radius: 20px;
 }
 
 .form-header  {
-  background-color: #EFF0F1;
+  background-color: #23272A;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -21,7 +45,7 @@ body {
 .form-header h1 {
   font-size: 30px;
   text-align:center;
-  color:#666;
+  color: #F6F6F6;
   padding:20px 0;
   border-bottom:1px solid #cccccc;
 }
@@ -38,7 +62,7 @@ body {
   }
   
   .label-title {
-    color:#1BBA93;
+    color: #F6F6F6;
     padding: 3%;
     font-size: 17px;
     font-weight: bold;
@@ -80,7 +104,7 @@ body {
   #range-label {
    width:15%;
    padding:5px;
-   background-color: #1BBA93;
+   background-color: #23272A;
    color:white;
    border-radius: 5px;
    font-size: 17px;
@@ -103,7 +127,7 @@ body {
 /* Form Footer */
 /*---------------------------------------*/
 .signup-form .form-footer  {
-    background-color: #EFF0F1;
+    background-color: #23272A;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding:10px 40px;
@@ -116,7 +140,7 @@ body {
   .btn {
      display:inline-block;
      padding:10px 20px;
-     background-color: #1BBA93;
+     background-color: #ba5d1b;
      font-size:17px;
      border:none;
      border-radius:5px;
@@ -125,7 +149,7 @@ body {
   }
   
   .btn:hover {
-    background-color: #169c7b;
+    background-color: #28169c;
     color:white;
   }
   .form-input {
@@ -134,3 +158,44 @@ body {
   .input-group {
       padding: 3%;
   }
+  /* Dropdown Button */
+.dropbtn {
+  background-color: #0704aa;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #8e3e53;}
