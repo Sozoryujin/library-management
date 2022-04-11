@@ -17,7 +17,7 @@ body::before {
   background-size: cover;
   -webkit-filter: blur(5px);
   -moz-filter:blur(5px);
-  filter:
+  filter: '';
 }
 
 .signup-form {
