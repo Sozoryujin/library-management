@@ -19,10 +19,9 @@ body::before {
   -moz-filter:blur(5px);
   filter: '';
 }
-
 .signup-form {
   position: absolute;
-  top: 35%;
+  top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%,-50%);
   -moz-transform: translate(-50%,-50%);
@@ -32,12 +31,12 @@ body::before {
   font-family: "Roboto", sans-serif;
   width: 800px;
   margin:30px auto;
-  background: #808080;
+  background: rgba(0,0,0,0.6);
   border-radius: 20px;
 }
 
 .form-header  {
-  background-color: #23272A;
+  background-color: rgba(0,0,0,0.6);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -54,7 +53,7 @@ body::before {
 /*---------------------------------------*/
 .form-body {
     padding:10px 40px;
-    color:rgb(62, 162, 230);
+    color: rgba(0,0,0,0.6);
   }
   
   .form-group {
@@ -88,6 +87,7 @@ body::before {
   .horizontal-group .left{
     float:left;
     width:49%;
+    color: #F6F6F6;
   }
   
   .horizontal-group .right{
@@ -140,7 +140,7 @@ body::before {
   .btn {
      display:inline-block;
      padding:10px 20px;
-     background-color: #ba5d1b;
+     background-color: #1b5bba;
      font-size:17px;
      border:none;
      border-radius:5px;
@@ -156,7 +156,8 @@ body::before {
       width: auto;
   }
   .input-group {
-      padding: 3%;
+      padding: 2%;
+      color: #F6F6F6;
   }
   /* Dropdown Button */
 .dropbtn {
