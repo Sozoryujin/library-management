@@ -1,3 +1,26 @@
 body{
-    background-color: #34568B;
+    background-color: #f6f6f6;
+}
+.card-title{
+    color: black;
+}
+.card-title:hover{
+    text-decoration: underline;
+}
+.card-text{
+    color: green;
+    font-size: 20px;
+    padding-left: 5px;
+}
+.img:hover{
+    border: 2px solid black;
+    transition: transform .5s ease;
+    overflow: hidden;
+    transition: transform .5s ease;
+    transform: scale(1.1);
+}
+.card-text1{
+    color: green;
+    font-size: 20px;
+    padding-left: 420px;
 }
