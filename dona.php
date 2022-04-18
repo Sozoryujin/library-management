@@ -100,7 +100,12 @@
   <!-- form footer -->
 <div class="form-footer">
     <!-- <a href="./thanks.html" -->
-    <button type="submit" class="btn">Donate</button>
+    <button type="submit" onclick="myfunction()" class="btn"  >Donate</button>
+    <script> 
+    function myfunction(){
+      alert('Thank you for landing here,your response has been recorded')
+    }
+  </script>
     <!-- </a> -->
   </div>
     </form>
