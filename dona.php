@@ -29,7 +29,7 @@
       </div>
     </div>
   </nav>
-    <form class="signup-form" action="./thanks.html" method="post">
+    <form class="signup-form" method="post">
 <!-- form header -->
 <div class="form-header">
     <h1>Donate books</h1>
@@ -41,11 +41,11 @@
     <div class="horizontal-group">
         <div class="form-group left">
             <label for="firstname" class="label-title">First name *</label>
-            <input type="text" id="firstname" class="form-input" placeholder="enter your first name" required="required" />
+            <input type="text" name="firstname" class="form-input" placeholder="enter your first name" required="required" />
         </div>
         <div class="form-group right">
             <label for="lastname" class="label-title">Last name</label>
-            <input type="text" id="lastname" class="form-input" placeholder="enter your last name" required="required" />
+            <input type="text" name="lastname" class="form-input" placeholder="enter your last name" required="required" />
         </div>
     </div>
 
@@ -53,7 +53,7 @@
 <!-- Email -->
 <div class="form-group">
     <label for="email" class="label-title">Email*</label>
-    <input type="email" id="email" class="form-input" placeholder="enter your email" required="required">
+    <input type="email" name="email" class="form-input" placeholder="enter your email" required="required">
   </div>
   <p></p>
   
@@ -65,9 +65,9 @@
         <label class="label-title">Cover:</label>
         <div class="input-group">
             <label for="Hardcover">
-                <input type="radio" name="Cover" value="Hardcover" id="Hardcover"> Hardcover </label>
+                <input type="radio" name="cov" value="Hardcover" id="Hardcover"> Hardcover </label>
             <label for="Softcover">
-                <input type="radio" name="Cover" value="Softcover" id="Softcover" required="required"> Softcover</label>
+                <input type="radio" name="cov" value="Softcover" id="Softcover" required="required"> Softcover</label>
         </div>
     </div>
 
@@ -81,12 +81,12 @@
 
     <div class="form-group left" >
       <label for="choose-file" class="label-title">Upload Book's Picture</label>
-      <input type="file" id="choose-file" size="80" required="required" >
+      <input type="file" name="pic" size="80" >
     </div>
     
     <div class="form-group right">
-      <label for="experience" class="label-title">No.of coppies</label>
-      <input type="number" min="0" max="1000" placeholder="Choose No. of Copies" value="" class="form-input" required = "required">
+      <label for="experience" class="label-title">No.of Copies</label>
+      <input type="number" name="num" min="1" max="1000"  value="1" placeholder="Choose No. of Copies" class="form-input" required = "required">
     </div>
   
   </div>
@@ -94,15 +94,60 @@
   <!-- Bio -->
 <div class="form-group">
     <label for="choose-file" class="label-title">Book's name and description:</label>
-    <textarea class="form-input" rows="4" cols="50" style="height:auto" required = "required"></textarea>
+    <textarea class="form-input" name="desc" rows="4" cols="50" style="height:auto" required = "required"></textarea>
   </div>
   <p></p>
   <!-- form footer -->
 <div class="form-footer">
-    <a href="./thanks.html">
-    <button type="submit" class="btn"> Donate</button>
-  </a>
+    <!-- <a href="./thanks.html" -->
+    <button type="submit" class="btn">Donate</button>
+    <!-- </a> -->
   </div>
     </form>
+    <?php
+    $target_dir = "BookPhotos/";
+    $target_file = $target_dir . basename($_FILES["pic"]["name"]);
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file);
+    $fn = $_POST['firstname'];
+    $ln = $_POST['lastname'];
+    $e= $_POST['email'];
+    $cov= $_POST['cov'];
+    $num= $_POST['num'];
+    $book =$_POST['desc'];
+    $servername = "localhost:3308";
+	    $username = "root";
+        $password = "";
+        $dbname = "awd_project";
+        
+        $conn = new mysqli($servername, $username, $password, $dbname);
+	    if ($conn->connect_error) {
+  		    die("Connection failed: " . $conn->connect_error);
+        }
+        if(isset($_POST['firstname']))
+        {
+            $sql = "INSERT INTO users_donated (First_Name, Last_Name,Email,Cover,Book,No_of_Copies) VALUES ('$fn', '$ln', '$e','$cov','$book','$num')";
+		    if ($conn->query($sql) === TRUE) {
+                $sql= "SELECT Books FROM library_database where Books='$book'";
+                $result=$conn->query($sql);
+                if($result->num_rows>0)
+                {
+                    $sql = "UPDATE library_database SET Copies_Available = Copies_Available+'$num' WHERE Books='$book'";
+                    $result=$conn->query($sql);
+                    
+                }
+                else
+                {
+                    $sql = "INSERT INTO library_database (Books,Copies_Available,Copies_Borrowed) VALUES ('$book','$num','0')";
+                    $result=$conn->query($sql);
+                }
+        
+		    } 	
+		    else {
+  			    echo "Error: " . $sql . "<br>" . $conn->error;
+		    }
+        }
+      
+?>
 </body>
 </html>
